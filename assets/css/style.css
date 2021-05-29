@@ -38,6 +38,7 @@ span {
 }
 
 li:hover {
-    background-color: lightslategray;
+    background-color: rgb(162, 163, 165);
     text-decoration: underline;
+    color:rgb(255, 255, 255);
 }
