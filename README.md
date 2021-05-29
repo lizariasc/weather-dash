@@ -28,7 +28,7 @@ https://lizariasc.github.io/weather-dash
  * Server side APIs
 
 ## Mock up
-![Mock-up](mockup.png)
+![Mock-up](mockup.gif)
 
 ## Sources
 https://openweathermap.org/api/one-call-api
