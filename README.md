@@ -24,6 +24,7 @@ https://lizariasc.github.io/weather-dash
  * HTML
  * CSS 
  * Bootstrap
+ * jQuery
  * JavaScript
  * Server side APIs
 
