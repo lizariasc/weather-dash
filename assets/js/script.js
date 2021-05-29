@@ -97,8 +97,23 @@ function UVIndex(ln,lt){
             method:"GET"
             }).then(function(response){
                 $(currentUvindex).html(response.value);
-            });
+
+            // color code UV
+            if (response.value > 7) {
+            $(currentUvindex).attr("class","rounded bg-danger text-light p-2");
+
+            } else if (response.value >= 2 && response.value <= 7) {
+            $(currentUvindex).attr("class","rounded bg-warning text-light p-2");  
+
+            } else if (response.value <= 2) {
+            $(currentUvindex).attr("class","rounded bg-success text-light p-2");      
 }
+            });
+
+
+};
+
+
 
 // 5-day forecast 
 function forecast(cityid){
@@ -120,18 +135,60 @@ function forecast(cityid){
         
             $("#fDate"+i).html(date);
             $("#fImg"+i).html("<img src="+iconurl+">");
-            $("#fTemp"+i).html(tempF+"&#8457");
-            $("#fWind"+i).html(windsmph+"MPH");
-            $("#fHumidity"+i).html(humidity+"%");
+            $("#fTemp"+i).html(tempF+" &#8457");
+            $("#fWind"+i).html(windsmph+" MPH");
+            $("#fHumidity"+i).html(humidity+" %");
          
         }
         
     });
 }
 
+// Add the searched city
+function addToList(c){
+    var listEl= $("<li>"+c.toUpperCase()+"</li>");
+    $(listEl).attr("class","list-group-item");
+    $(listEl).attr("data-value",c.toUpperCase());
+    $(".list-group").append(listEl);
+}
+// Display the weather of the city when the button is clicked
+function invokePastSearch(event){
+    var liEl=event.target;
+    if (event.target.matches("li")){
+        city=liEl.textContent.trim();
+        currentWeather(city);
+    }
 
+}
+
+// RENDER FUNCTION
+function loadlastCity(){
+    $("ul").empty();
+    var sCity = JSON.parse(localStorage.getItem("cityname"));
+    if(sCity!==null){
+        sCity=JSON.parse(localStorage.getItem("cityname"));
+        for(i=0; i<sCity.length;i++){
+            addToList(sCity[i]);
+        }
+        city=sCity[i-1];
+        currentWeather(city);
+    }
+
+}
+// Clear searched history
+function clearHistory(event){
+    event.preventDefault();
+    sCity=[];
+    localStorage.removeItem("cityname");
+    document.location.reload();
+
+}
 // Event listeners
 $("#search-button").on("click",displayWeather);
+$(document).on("click",invokePastSearch);
+$(window).on("load",loadlastCity);
+$("#clear-history").on("click",clearHistory);
+
 
 
 
