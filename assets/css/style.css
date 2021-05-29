@@ -1,0 +1,44 @@
+
+* {
+    box-sizing: border-box;
+    
+}
+
+header {
+background-image: linear-gradient(to right, rgb(69, 69, 187), rgb(19, 30, 63));
+color: white;  
+margin: 10px;
+}
+
+body {
+    
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+h3 {
+    font-weight: bold;
+    margin-top: 20px;
+}
+.weather {
+    margin: 20px 10px 0px 0px;
+}
+
+.forecast{
+    font-size: 0.9em;
+}
+
+.future-weather {
+    margin-bottom: 20px;
+}
+
+span {
+    font-size: 1em;
+}
+
+li:hover {
+    background-color: rgb(162, 163, 165);
+    text-decoration: underline;
+    color:rgb(255, 255, 255);
+}
