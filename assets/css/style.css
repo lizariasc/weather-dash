@@ -22,12 +22,15 @@ h3 {
     margin-top: 20px;
 }
 .weather {
-    margin-top: 20px;
+    margin: 20px 10px 0px 0px;
 }
 
 .forecast{
-    
     font-size: 0.9em;
+}
+
+.future-weather {
+    margin-bottom: 20px;
 }
 
 span {
